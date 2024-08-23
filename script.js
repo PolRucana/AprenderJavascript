@@ -26,3 +26,19 @@ if (12==12) {
 } else {
     console.log("2")
 }
+
+/* SWITCH */
+let pais="Bolivia"
+let descuento=0
+switch (pais) {
+    case "Argentina":
+        descuento=10;
+        break
+    case "Bolivia":
+        descuento=20;
+        break
+    case "Perú":
+        descuento=30;
+        break
+}
+console.log(descuento)
