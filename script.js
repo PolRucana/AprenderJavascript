@@ -49,14 +49,23 @@ console.log(descuento)*/
     let resultado=table+" x "+number+" = "+table*number
     console.log(resultado)
 }*/
-let almacen=""
+
+/*let almacen=""
 for (let newtabla = 1; newtabla<=12; newtabla++) {
     for(let newnumber=1;newnumber<=12;newnumber++){
-        let resultado=newtabla+" x "+newnumber+" = "+newtabla*newnumber
+        let resultado=newtabla+" x "+newnumber+" = "+newtabla*newnumber*/
         /*console.log(resultado)*/
-        almacen = almacen+resultado+"\n"
+        /*almacen = almacen+resultado+"\n"
         
     }
     
 }
-console.log(almacen)
+console.log(almacen)*/
+
+for(let mynumber=0;mynumber<=12;mynumber++){
+    if (mynumber%2==0) {
+        console.log(mynumber)
+    } else {
+        console.log("impar")
+    }
+}
