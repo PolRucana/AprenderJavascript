@@ -1,4 +1,4 @@
-/* CONDICIONALES IF */
+/************** CONDICIONALES IF *********************/
 /*let condicion=7
 if (condicion==1) {
     console.log("Es verdadero")
@@ -6,7 +6,7 @@ if (condicion==1) {
     console.log("Es falso")
 }*/
 
-/* CONDICIONALES IF MÚLTIPLES */
+/*************** CONDICIONALES IF MÚLTIPLES ************/
 /*if (10<3) {
     console.log("1")
 } else if (1>5) {
@@ -27,7 +27,7 @@ if (condicion==1) {
     console.log("2")
 }*/
 
-/* SWITCH */
+/******************** SWITCH ****************************/
 /*let pais="Bolivia"
 let descuento=0
 switch (pais) {
@@ -43,7 +43,7 @@ switch (pais) {
 }
 console.log(descuento)*/
 
-/* CICLO FOR */
+/************************* CICLO FOR *******************/
 /*for (let number = 1; number<=12; number++) {
     let table=1
     let resultado=table+" x "+number+" = "+table*number
@@ -62,10 +62,60 @@ for (let newtabla = 1; newtabla<=12; newtabla++) {
 }
 console.log(almacen)*/
 
-for(let mynumber=0;mynumber<=12;mynumber++){
+/*for(let mynumber=0;mynumber<=12;mynumber++){
     if (mynumber%2==0) {
         console.log(mynumber)
     } else {
         console.log("impar")
     }
+}*/
+
+/******************** CICLO WHILE  **************************/
+/*let edad=1
+while (edad<=18) {
+    console.log(edad+" Es menor de edad")
+    edad++
 }
+console.log(edad+" Es mayor de edad")*/
+
+
+/****************** EJERCICIO FINAL DE CICLOS ******************/
+
+/*let columna=""
+for(let numcolumn=1;numcolumn<=8;numcolumn++){
+    let fila=""
+    for(let numrow=1;numrow<=8;numrow++){
+        if (numcolumn%2!=0) {
+            if(numrow%2==0){
+                fila = fila+" X "
+            }
+            else{
+                fila = fila+" O "
+            }
+        } else {
+            if(numrow%2==0){
+                fila = fila+" O "
+            }
+            else{
+                fila = fila+" X "
+            }
+        }
+    }
+    columna=columna+fila+"\n"
+}
+
+console.log(columna)*/
+
+let col=""
+for (let mycol = 1; mycol <= 8; mycol++){
+    let row=""
+    for (let myrow=1; myrow <= 8; myrow++) {
+        if ((mycol+myrow)%2==0) {
+            row=row+" O "
+        } else {
+            row=row+" X "   
+        }
+    }
+    col=col+row+"\n"
+}
+console.log(col)
