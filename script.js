@@ -80,6 +80,7 @@ console.log(edad+" Es mayor de edad")*/
 
 
 /****************** EJERCICIO FINAL DE CICLOS ******************/
+/**************   TABLA DE AJEDREZ V1    *************/
 
 /*let columna=""
 for(let numcolumn=1;numcolumn<=8;numcolumn++){
@@ -106,7 +107,10 @@ for(let numcolumn=1;numcolumn<=8;numcolumn++){
 
 console.log(columna)*/
 
-let col=""
+
+
+/**************   TABLA DE AJEDREZ V2   *************/
+/*let col=""
 for (let mycol = 1; mycol <= 8; mycol++){
     let row=""
     for (let myrow=1; myrow <= 8; myrow++) {
@@ -118,4 +122,33 @@ for (let mycol = 1; mycol <= 8; mycol++){
     }
     col=col+row+"\n"
 }
-console.log(col)
+console.log(col)*/
+
+
+/**********  EJERCICIO FINAL  *************/
+
+function cajero() {
+    let saldo=2100
+    while(true){
+        let opciones = parseInt(prompt("Cajero:\n1. Ver saldo\n2. Depositar\n3. Retirar\n4. Salir"))
+        if(opciones==4){
+            alert("Hasta luego")
+            break
+        }
+        if(opciones==1){
+            alert(saldo)
+        }else if (opciones==2) {
+            let addsaldo=parseInt(prompt("Depositar: "))
+            saldo = saldo + addsaldo 
+        } else if (opciones==3) {
+            let remove=parseInt(prompt("Retirar: "))
+            if (remove>saldo) {
+                alert("Saldo insuficiente")
+            } else {
+                saldo=saldo-remove    
+            }
+        } else {
+            alert("Opción incorrecta")
+        }
+    }   
+}
