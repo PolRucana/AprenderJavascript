@@ -127,7 +127,7 @@ console.log(col)*/
 
 /**********  EJERCICIO FINAL  *************/
 
-function cajero() {
+/*function cajero() {
     let saldo=2100
     while(true){
         let opciones = parseInt(prompt("Cajero:\n1. Ver saldo\n2. Depositar\n3. Retirar\n4. Salir"))
@@ -151,4 +151,4 @@ function cajero() {
             alert("Opción incorrecta")
         }
     }   
-}
+}*/
