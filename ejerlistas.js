@@ -1,11 +1,21 @@
-/*1*/
+/*1
+En este script deberás crear un array para guardar los nombres de los 
+días de la semana, empezando por 0 para el domingo. Para comprobar el 
+funcionamiento pide al usuario un número entre 0 y 6 y devuelve el nombre 
+del día. Se supone que el dato tecleado estará entre 0 y 6*/
+
 /*let semana = ["Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado"]
 let numero = 0
 console.log(semana[numero])
 */
 
 
-/*2*/
+/*2
+Crea un array booleano con dos valores 'verdadero' y 'falso'. Este array 
+te sirve para traduicr los valores true y false. Usalo para que el script 
+muestre un alert con el nombre vedadero si un usuario teclea un valor entre 
+0 y 9 y falso en el caso contrario.*/
+
 /*let varbool = ["Falso","Verdadero"]
 let numero = 10
 if (numero>=0 && numero<=9) {
@@ -15,7 +25,11 @@ if (numero>=0 && numero<=9) {
 }*/
 
 
-/*3*/
+/*3
+Sin usar métodos del objeto array, diseña una función llamada sumaLista() 
+capaz de sumar todos los números que forman el array que se le pase como 
+argumento.*/
+
 /*function sumalista(lista) {
     let suma =0
     for (let i = 0; i < lista.length; i++) {
@@ -26,7 +40,15 @@ if (numero>=0 && numero<=9) {
 console.log(sumalista([1,2,3,4,5]))*/
 
 
-/*4*/
+/*4
+Diseña un script que vaya leyendo números y guardándolos en un array. Una vez lleno 
+mostrará el array y deberá decir cuantos números son pares y cuantos son impares. La 
+entrada de datos termina cuando el usuario teclea 0 o un valor no numérico.
+
+Intenta resolverlo sin usar métodos del objeto array, solo indices y longitudes de arrays.
+
+No debe aceptar valores no numéricos (isNaN(valor) permite detectar valores no numéricos).*/
+
 /*FORMA 1*/
 /*let sumaimpar=0
 let sumapar=0
@@ -69,7 +91,16 @@ alert("Pares: "+sumapar+" Impares: "+sumaimpar)
 alert(milista+"\n"+"Par: "+contpar+"\n"+"Impar: "+contimpar)*/
 
 
-/* 5 */
+/* 5 
+Escribe una función que pueda devolver el valor más pequeño de un array numérico o 
+el índice de ese valor. El segundo parámetro de la función dirá si debe devolver el 
+valor ("v") o el índice ("i"). No uses métodos del objeto array.
+
+Se supone que el primer parámetro siempre será una matriz llena con al menos 1 número 
+y sin duplicados.
+
+Se suponer el segundo parámetro será una letra con uno de dos valores: 'v' 'i'
+*/
 
 /*function valorindice(menor,indice) {
     let valormenor = menor[0]
@@ -90,7 +121,11 @@ alert(milista+"\n"+"Par: "+contpar+"\n"+"Impar: "+contimpar)*/
 valorindice([10,2,0,1,25,0],"i")*/
 
 
-/* 6 */
+/* 6 
+Escribe una función que determina si la letra que se le pasa como argumento se 
+encuentra contenida dentro de un array de letras que se le pasa como segundo argumento.
+
+Se trata de resolverlo sin usar métodos del objeto array, solo el dato tipo array.*/
 
 /*function buscar(valor,miarray){
     let respuesta
@@ -119,7 +154,12 @@ valorindice([10,2,0,1,25,0],"i")*/
 buscar("f",["a","b","c","d"])*/
 
 
-/* 7 */
+/* 7 
+En este ejempo debes crear una función que reciba como argumento una letra y devuelva 
+verdadero o falso (tru o false) dependiendo de si es una vocal o no. Debe funcionar 
+igual con mayúsculas y con minúsculas y por supuesto usando arrays.
+
+Solo se aceptan letras internacionales (sin acentos)*/
 
 /*function vocales(vocal) {
  let listavocales = ["a","e","i","o","u","A","E","I","O","U"]
@@ -148,7 +188,12 @@ buscar("f",["a","b","c","d"])*/
 vocales("t")*/
 
 
-/* 8 */
+/* 8 
+En este ejempo debes crear una función que reciba como argumento una letra y devuelva 
+verdadero o falso (tru o false) dependiendo de si es una vocal o no. Debe funcionar 
+igual con mayúsculas y con minúsculas y por supuesto usando arrays.
+
+Solo se aceptan letras internacionales (sin acentos)*/
 
 /*function micadena(cadena) {
     let i=0
@@ -162,7 +207,16 @@ vocales("t")*/
 micadena(["a","b","c","d"])*/
 
 
-/* 9 */
+/* 9 
+Un servicio de atención al ciente tiene establecido turnos semanales para sus empleados 
+de manera que cada día de la semana se encarga del servicio  una persona: lunes - María, 
+Martes - Luis, Miércoles - Antonia, Jueves - Pedro, Viernes - Marisa.
+
+Usa un array para almacenar los datos del servicio. En este array cada elemento será un 
+par día - nombre.
+
+Crea una función que responda con el nombre de la persona encargada del servicio sabiendo 
+el día. Si el día no existe deberá decir que no hay servicio. Los nombres de los días deben ir en minúsculas.*/
 
 /*function semana(dia) {
    let arraydia = ["Lunes","Martes","Miercoles","Jueves","Viernes"]
@@ -194,7 +248,12 @@ semana("Martes")*/
 console.log("El nombre es: "+semana("junio"))*/
 
 
-/* 10 */
+/* 10 
+Un tienda vende monitores, teclados y ratones. Los precios se almacenan en una estructura 
+array conde cada elemento es un par producto - precio.
+
+Diseña una función que reciba como argumento el nombre de un producto (minúscula) y devuelva 
+su precio.*/
 
 /*function productoprecio(producto) {
     let arrayproducto = ["maiz","arroz","aceite","papa"]
