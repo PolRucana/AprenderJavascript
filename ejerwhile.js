@@ -62,7 +62,15 @@ let cantidad=0
  }else{
     alert("no es primo")
  }*/
- 
+
+let numero=4,divisor=2,primo="si"
+while (divisor<=numero && numero%divisor!=0) {
+    divisor++
+}
+if(numero <=1 || divisor<numero){
+    primo="no"
+}
+console.log("Primo: "+primo)
  /*
  Escribir un script que pida al usuario una contraseña. Si coincide con la clave definida 
  en el script le devolverá el mensaje "Acceso concedido" y si no coincide le devolverá el 
@@ -167,7 +175,7 @@ Un script pedirá al usuario que vaya tecleando números de manera repetida. cua
  esta suma es par el programa se repite y si es impar el programa acaba.
 */
 
-let suma = 2, numero
+/*let suma = 2, numero
 while (suma %2 ==0) {
     suma = 0
     numero = 1
@@ -176,4 +184,4 @@ while (suma %2 ==0) {
         suma = suma+numero
     }
     alert("La suma es: "+suma)
-}
+}*/
