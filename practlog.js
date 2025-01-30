@@ -111,7 +111,34 @@ console.log(anagrama("raoma","aroma"))*/
 console.log(anagrama("raomaa","aromax"))*/
 
 
-let arr = [8,11,2,7,1,6,80,-2,-30,5,7,4,100,10000,-98,4]
+//#3 COMBINAR 2 ARRAY'S ORDENADOS
+/*
+Implemente un algoritmo capaz de combinar dos arrays ordenandos, obteniendo
+un array ordenado
+- Analice el orden de su algoritmo
+- Implemente un algoritmo, sin usar metodos propios de javascript
+*/
+
+const combinar = (arra1,arra2) =>{
+    let newarr =[]
+    //también puede ir el while de abajo, si uno llega a 0 te da false y corta
+    //while(arra1.length && arra2.length)
+    while (arra1.length!=0 && arra2.length!=0) {
+        let primerelemento
+        if (arra1[0]<arra2[0]) {
+            primerelemento = arra1.shift()
+        } else {
+            primerelemento = arra2.shift()
+        }
+        newarr.push(primerelemento)
+    }
+    newarr = newarr.concat(arra1).concat(arra2)
+    return newarr
+}
+console.log(combinar([1,2,3,4,5],[4,5,6,7,8]))
+
+
+/*let arr = [8,11,2,7,1,6,80,-2,-30,5,7,4,100,10000,-98,4]
 for(let j=0;j<arr.length;j++){
     for(let i=0;i<arr.length;i++){
         let a=arr[i]
@@ -122,4 +149,4 @@ for(let j=0;j<arr.length;j++){
         }
     }
 }
-console.log(arr)
+console.log(arr)*/
