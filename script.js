@@ -1,3 +1,59 @@
+//PROYECTO HTML Y JS
+const saludar = (nombre,apellido)=>{
+
+    let mihora = new Date()
+    let hora = mihora.getHours()
+    let minuto = mihora.getMinutes()
+    let horareal = parseInt(hora+""+minuto)
+    //Si son entre las 6am y 11:59am "Buenos dias"
+    if(horareal>=600 && horareal<=1159) diahorario="Buenos dias"
+    //Si son entres 12pm y las 17.59pm "Buenas tardes"
+    if(horareal>=1200 && horareal<=1759) diahorario="Buenas tardes"
+    //Si son entre las 18pm y 23:59pm "Buenas noches"
+    if(horareal>=1800 && horareal<=2359) diahorario="uenas noches"
+    //Si son entre las 00am y 5:59am "Es de madrugada"
+    if(horareal>=0 && horareal<=559) diahorario="Es de madrugada"
+
+    let micambio = document.getElementById("cambiar")
+    micambio.innerText = diahorario+" Joven "+nombre+" "+apellido
+    alert("Hola "+nombre+" "+apellido+" "+diahorario)
+ }
+
+ //LO IDEAL SERÍA NO USAR EVENTOS DIRECTAMENTE EN LAS ETIQUETAS HTML SI NO EN JAVASCRIPT
+ //COLOCAMOS UN ID EN LA ETIQUETA Y HACEMOS EL EVENTO EN JS
+
+ let myeventbot = document.getElementById("eventoboton")
+ /*myeventbot.onclick = saludar2
+ function saludar2(){
+    alert("hola ")
+ }*/
+//Si en caso tuviera parámetros sería así
+myeventbot.onclick = function () {saludar2("John")}
+ function saludar2(nombre){
+    alert("hola "+nombre)
+ }
+
+
+ //Existe un evento mejor que onclick y es addeventlistener que me permite realizar 
+ // varios eventos de un id a diferencia de onclick que deja solo uno
+
+let mieventolist = document.getElementById("listenere")
+/*mieventolist.addEventListener("click",saludar3)
+function saludar3(){
+    alert("hola ")
+ }*/
+ //Si en caso tuviera parámetros sería así
+ //mieventolist.addEventListener("click",function() {saludar3("John");despedir("John")})
+ //o también
+mieventolist.addEventListener("click",function() {saludar3("John")})
+mieventolist.addEventListener("click",function() {despedir("John")})
+ function saludar3(nombre){
+    alert("hola "+nombre)
+ }
+ function despedir(nombre){
+    alert("adios "+nombre)
+ }
+
 /************** CONDICIONALES IF *********************/
 /*let condicion=7
 if (condicion==1) {
@@ -127,7 +183,7 @@ console.log(col)*/
 
 /**********  EJERCICIO FINAL  *************/
 
-function cajero() {
+/*function cajero() {
     let saldo=2100
     while(true){
         let opciones = parseInt(prompt("Cajero:\n1. Ver saldo\n2. Depositar\n3. Retirar\n4. Salir"))
@@ -151,4 +207,4 @@ function cajero() {
             alert("Opción incorrecta")
         }
     }   
-}
+}*/

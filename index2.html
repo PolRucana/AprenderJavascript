@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style2.css">
+    <title>Mi Economía</title>
+</head>
+<body>
+    <h1 id="titulo">CONTROL DE GASTOS</h1>
+    <!--Creamos un formulario-->
+    <form action="" id="myform">
+        <div>
+            <fieldset>
+                <legend>TIPOS</legend>
+                <input id="iningreso" type="radio" name="inradio" value="Ingreso"><label for="iningreso">Ingreso</label>
+                <input id="inegreso" type="radio" name="inradio" value="Egreso"><label for="inegreso">Egreso</label>  
+            </fieldset>
+        </div>
+        <div>
+            <label for="indescripcion">DESCRIPCIÓN</label><input id="indescripcion" type="text" name="indescripcion">
+        </div>
+        <div>
+            <label for="inmonto">MONTO</label><input id="inmonto" type="number" name="inmonto">
+        </div>
+        <div>
+            <label for="incategoria">CATEGORÍA</label><input id="incategoria" type="text" name="incategoria">
+        </div>
+        <button>AÑADIR</button>
+
+    </form>
+
+    <div class="mitabla">
+        <table id="tomartabla" data-transaction-id="1234">
+            <tr>
+                <th>TIPO</th>
+                <th>DESCRIPCIÓN</th>
+                <th>MONTO</th>
+                <th>CATEGORÍA</th>
+                <th>ELIMINAR</th>
+            </tr>
+        </table>
+    </div>
+</body>
+<script src="script2.js"></script>
+</html>
+
+
+<!------RECUERDA------->
+<!--
+Los data-atribute se usan en caso de que no exista un atributo de html (como id,class,type,name,for,etc) 
+que nos permita realizar una tarea
+-->

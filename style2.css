@@ -1,0 +1,54 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+    text-align: center;
+}
+body{
+    background: rgb(48, 47, 47);
+}
+#titulo{
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+form{
+    /*border: 2px solid red;*/
+    background: #068FFF;
+    color: white;
+    padding: 15px 0px 25px 0px;
+}
+form div{
+    padding: 10px;
+}
+form label{
+    margin-right: 10px;
+}
+form button{
+    padding: 8px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.mitabla{
+    border: 1px solid yellow;
+    color: white;
+    padding: 20px 0px;
+}
+
+.mitabla table{
+    margin: 0 auto;
+}
+
+th,td{
+    padding: 20px;
+    border: 1px solid #D8A25E;
+}
+th{
+    font-size: 15px;
+    color: #EEDF7A;
+}
+
+
