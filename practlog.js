@@ -111,7 +111,25 @@ console.log(anagrama("raoma","aroma"))*/
 console.log(anagrama("raomaa","aromax"))*/
 
 
-//#3 COMBINAR 2 ARRAY'S ORDENADOS
+
+//#3 ORDENAR ARRAY DE NUMEROS DE MENOR A MAYOR A MI MANERA
+
+/*let arr = [8,11,2,7,1,6,80,-2,-30,5,7,4,100,10000,-98,4]
+for(let j=0;j<arr.length;j++){
+    for(let i=0;i<arr.length;i++){
+        let a=arr[i]
+        let b=arr[i+1]
+        if (arr[i]>arr[i+1]) {
+            arr[i]=b
+            arr[i+1]=a
+        }
+    }
+}
+console.log(arr)*/
+
+
+
+//#4 COMBINAR 2 ARRAY'S ORDENADOS
 /*
 Implemente un algoritmo capaz de combinar dos arrays ordenandos, obteniendo
 un array ordenado
@@ -119,7 +137,7 @@ un array ordenado
 - Implemente un algoritmo, sin usar metodos propios de javascript
 */
 
-const combinar = (arra1,arra2) =>{
+/*const combinar = (arra1,arra2) =>{
     let newarr =[]
     //también puede ir el while de abajo, si uno llega a 0 te da false y corta
     //while(arra1.length && arra2.length)
@@ -135,18 +153,68 @@ const combinar = (arra1,arra2) =>{
     newarr = newarr.concat(arra1).concat(arra2)
     return newarr
 }
-console.log(combinar([1,2,3,4,5],[4,5,6,7,8]))
+*/
 
 
-/*let arr = [8,11,2,7,1,6,80,-2,-30,5,7,4,100,10000,-98,4]
-for(let j=0;j<arr.length;j++){
-    for(let i=0;i<arr.length;i++){
-        let a=arr[i]
-        let b=arr[i+1]
-        if (arr[i]>arr[i+1]) {
-            arr[i]=b
-            arr[i+1]=a
+
+//#5 IMPLEMENTE UN ALGORITMO EL CUAL DADO UN ARRAY CUALQUIERA LO ORDENE 
+//  (USAR MERGE SORT)
+// Merge sort: Usa el princio de divide y venceras
+
+/*const mergesort = (darr) =>{
+    if(darr.length==1) return darr
+    let mitad = Math.trunc(darr.length/2)
+    let arrleft = darr.splice(0,mitad)
+    let arrrigth = darr
+    let myleft = mergesort(arrleft)
+    let myrigth = mergesort(arrrigth)
+    //usamos la funcion anterior de combinar 2 array
+    return  combinar(myleft,myrigth)
+}
+console.log(mergesort([8,1,10,9,7,11,3,21,0]))
+*/
+
+
+
+/*#6 FIBONACCI
+ * Escribe un programa que imprima los 50 primeros números de la sucesión
+ * de Fibonacci empezando en 0.
+ * - La serie Fibonacci se compone por una sucesión de números en
+ *   la que el siguiente siempre es la suma de los dos anteriores.
+ *   0, 1, 1, 2, 3, 5, 8, 13...
+ */
+/*let arrinicial = [0,1]
+const fibo = () =>{
+    if(arrinicial.length == 50) return arrinicial
+    let tam = arrinicial.length
+    let nextarr = arrinicial[tam -1] + arrinicial[tam-2]
+    arrinicial.push(nextarr)
+    return fibo()
+}
+console.log(fibo())*/
+
+
+/*# 7 NUMERO PRIMO
+ * Escribe un programa que se encargue de comprobar si un número es o no primo.
+ * Hecho esto, imprime los números primos entre 1 y 100.
+ */
+
+function primo() {
+    let cadena = ""
+    for(let i=2;i<=100;i++){
+        let l=1,count=0
+        while (l<=i & count<3) {
+            if(i%l==0) count++
+            l++
+        }
+        if(count<3){
+            cadena = cadena+","+i
         }
     }
+    console.log(cadena)
 }
-console.log(arr)*/
+primo()
+
+
+
+
