@@ -199,7 +199,7 @@ console.log(fibo())*/
  * Hecho esto, imprime los números primos entre 1 y 100.
  */
 
-function primo() {
+/*function primo() {
     let cadena = ""
     for(let i=2;i<=100;i++){
         let l=1,count=0
@@ -214,7 +214,33 @@ function primo() {
     console.log(cadena)
 }
 primo()
+*/
 
 
+/*8 AREA DE UN POLÍGONO
+ * Crea una única función (importante que sólo sea una) que sea capaz
+ * de calcular y retornar el área de un polígono.
+ * - La función recibirá por parámetro sólo UN polígono a la vez.
+ * - Los polígonos soportados serán Triángulo, Cuadrado y Rectángulo.
+ * - Imprime el cálculo del área de un polígono de cada tipo.
+ */
 
+/*const poligono = (tipo,base,altura)=>{
+    let area
+    if (tipo=="cuadrado") {
+        area = base*altura
+        return area
+    }
+    else if(tipo=="rectangulo"){
+        area = base*altura
+        return area
+    }
+    else if(tipo=="triangulo"){
+        area=(base*altura)/2
+        return area
+    }
+    return "Datos mal ingresados"
+}
 
+console.log(poligono("triangulo",12,23))
+*/
