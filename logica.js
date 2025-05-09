@@ -191,7 +191,7 @@ para indicar una pausa. por ejemplo:
 2 2=>"aa"
 22=>"b"
 */
-let texto="hola"
+/*let texto="la hora"
 let letras=["abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"," "]
 let numeros=[2,3,4,5,6,7,8,9,0]
 
@@ -202,7 +202,7 @@ const buscarLetra = (pletra,sletra) =>{
         i++
     }
     let posicion = letras[i].indexOf(pletra)
-    for(j=0;j<posicion+1;j++){
+    for(let j=0;j<posicion+1;j++){
         numero = numero + numeros[i]
     }
     if (letras[i].includes(pletra)===letras[i].includes(sletra)){
@@ -219,7 +219,51 @@ const tomarLetra = (texto) =>{
     return cadenafinal
 }
 
-console.log(tomarLetra(texto))
+console.log(tomarLetra(texto))*/
+
+
+/************************* 2DA FORMA: EDTEAM *****************/
+let numpad = {
+    0:" ",
+    1:"",
+    2:"abc",
+    3:"def",
+    4:"ghi",
+    5:"jkl",
+    6:"mno",
+    7:"pqrs",
+    8:"tuv",
+    9:"wxyz"
+}
+
+const buscanumero = (letra,letra2) =>{
+    let numero = Object.keys(numpad)
+    let resultado = ""
+    numero.forEach(num =>{
+        for(let i=0;i<numpad[num].length;i++){
+            if (letra === numpad[num][i]) {
+                for(let j=0;j<=i;j++){
+                    resultado = `${resultado}${num}`
+                }
+                if (numpad[num].includes(letra) == numpad[num].includes(letra2)) {
+                    resultado = " "+resultado
+                }
+            }
+        }
+    })
+    return resultado
+}
+
+const convertirtexto = texto =>{
+    let respuesta = ""
+    for(let i=0;i<texto.length;i++){
+        respuesta = `${respuesta}${buscanumero(texto[i],texto[i-1])}`
+    }
+
+    return respuesta
+}
+
+console.log(convertirtexto("la hora"))
 
 
 
