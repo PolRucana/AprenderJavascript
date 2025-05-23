@@ -304,7 +304,7 @@ const crearPass = (may,num,car,tamaño) =>{
     let miSuma= sumarSiNo(may,num,car)
     let desorden = []
     let vaMin = Math.trunc(Math.random()*(tamaño-miSuma)) + 1
-    desorden.push(encontrarValor(tamaño,minuscula))
+    desorden.push(encontrarValor(vaMin,minuscula))
     miSuma = miSuma-1
     tamaño = tamaño-vaMin
     
@@ -314,24 +314,39 @@ const crearPass = (may,num,car,tamaño) =>{
         tamaño = tamaño-vaMay
         miSuma=miSuma-1
         
-        desorden.push(encontrarValor(tamaño,mayuscula))
+        desorden.push(encontrarValor(vaMay,mayuscula))
     }
     if (num!="no") {
         vaNum = Math.trunc(Math.random()*(tamaño-miSuma)) + 1
         tamaño = tamaño-vaNum
         miSuma=miSuma-1
         
-        desorden.push(encontrarValor(tamaño,numero))
+        desorden.push(encontrarValor(vaNum,numero))
     }
     if (car!="no") {
-        desorden.push(encontrarValor(tamaño,car))
+        desorden.push(encontrarValor(tamaño,carespeciales))
     }
     return desorden
 
 }
 
-console.log(crearPass("si","si","si",8))
-
+const juntarElmentos = (arrdes) =>{
+    let ordenar = [], arrfinal=""
+    arrdes.forEach(valor => {
+        valor.forEach(elemento => {
+            ordenar.push(elemento)
+        });
+    });
+    let miTamaño=ordenar.length
+    for(let i=0;i<miTamaño;i++){
+        let modtamaño= ordenar.length
+        let tomarValor= Math.trunc(Math.random()*modtamaño)
+        arrfinal=arrfinal+ordenar[tomarValor]
+        ordenar.splice(tomarValor,1)
+    }
+    return arrfinal
+}
+console.log(juntarElmentos(crearPass("si","si","si",10)))
 
 
 
