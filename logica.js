@@ -223,7 +223,7 @@ console.log(tomarLetra(texto))*/
 
 
 /************************* 2DA FORMA: EDTEAM *****************/
-let numpad = {
+/*let numpad = {
     0:" ",
     1:"",
     2:"abc",
@@ -264,12 +264,89 @@ const convertirtexto = texto =>{
 }
 
 console.log(convertirtexto("la hora"))
+*/
 
 
+/*########### EJERCICIO 4 ##############
+CONTRASEÑAS RANDOM
+Vamos a crear un algoritmo  que permite generar contraseñas aleatorias contemplando diferentes
+parámetros para generar la contraseña: letras minúscuas, mayúsculas, números y caracteres
+especiales, además el tamaño de la contraseña tendra la longitud mínima de 7
+*/
 
+let minuscula=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","ñ","o","p","q","r","s","t","u","v","w","x","y","z"]
+let mayuscula=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","Ñ","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+let numero=["0","1","2","3","4","5","6","7","8","9"]
+let carespeciales=[",",";",".","-","_","#","$","%","&","/","(",")","=","?","¡","*","[","]","{","}"]
 
+const encontrarValor = (eltamaño,elarray) =>{
+    let arrayDesord = []
+    for(let i=0;i<eltamaño;i++){
+        let buscar = Math.trunc(Math.random()*elarray.length)
+        arrayDesord.push(elarray[buscar])
+    }
+    return arrayDesord
+}
 
+const sumarSiNo = (may,num,car) =>{
+    let misValores = [may,num,car]
+    let miSuma=0
+    misValores.forEach(valor=>{
+        if(valor=="si")
+            miSuma=miSuma+1
+    })
 
+    return miSuma
+}
+
+const crearPass = (may,num,car,tamaño) =>{
+
+    let miSuma= sumarSiNo(may,num,car)
+    let desorden = []
+    let vaMin = Math.trunc(Math.random()*(tamaño-miSuma)) + 1
+    desorden.push(encontrarValor(vaMin,minuscula))
+    miSuma = miSuma-1
+    tamaño = tamaño-vaMin
+    
+    let vaMay,vaNum,vaCar
+    if (may!="no") {
+        vaMay = Math.trunc(Math.random()*(tamaño-miSuma)) + 1
+        tamaño = tamaño-vaMay
+        miSuma=miSuma-1
+        
+        desorden.push(encontrarValor(vaMay,mayuscula))
+    }
+    if (num!="no") {
+        vaNum = Math.trunc(Math.random()*(tamaño-miSuma)) + 1
+        tamaño = tamaño-vaNum
+        miSuma=miSuma-1
+        
+        desorden.push(encontrarValor(vaNum,numero))
+    }
+    if (car!="no") {
+        desorden.push(encontrarValor(tamaño,carespeciales))
+    }
+    return desorden
+
+}
+
+const juntarElmentos = (arrdes) =>{
+    let ordenar = [], arrfinal=""
+    arrdes.forEach(valor => {
+        valor.forEach(elemento => {
+            ordenar.push(elemento)
+        });
+    });
+    let miTamaño=ordenar.length
+    for(let i=0;i<miTamaño;i++){
+        let modtamaño= ordenar.length
+        let tomarValor= Math.trunc(Math.random()*modtamaño)
+        arrfinal=arrfinal+ordenar[tomarValor]
+        ordenar.splice(tomarValor,1)
+    }
+    return arrfinal
+}
+console.log(juntarElmentos(crearPass("si","si","si",10)))
 
 
 
