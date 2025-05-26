@@ -274,7 +274,7 @@ parámetros para generar la contraseña: letras minúscuas, mayúsculas, número
 especiales, además el tamaño de la contraseña tendra la longitud mínima de 7
 */
 
-let minuscula=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","ñ","o","p","q","r","s","t","u","v","w","x","y","z"]
+/*let minuscula=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","ñ","o","p","q","r","s","t","u","v","w","x","y","z"]
 let mayuscula=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","Ñ","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
 let numero=["0","1","2","3","4","5","6","7","8","9"]
 let carespeciales=[",",";",".","-","_","#","$","%","&","/","(",")","=","?","¡","*","[","]","{","}"]
@@ -347,7 +347,34 @@ const juntarElmentos = (arrdes) =>{
     return arrfinal
 }
 console.log(juntarElmentos(crearPass("si","si","si",10)))
+*/
 
 
 
+/************************* 2DA FORMA: EDTEAM *****************/
+const generar = () =>{
+    let tam = prompt("Tamaño de pass: ")
+    let may = prompt("Mayúsculas: si/no")
+    let num = prompt("Números: si/no")
+    let car = prompt("Caracteres: si/no")
+    let pass=""
+
+    let minusculas = "abcdefghijklmnopqrstuvwxyz"
+
+    if (may==="si") {
+        minusculas=minusculas+"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    }
+    if (num==="si") {
+        minusculas=minusculas+"0123456789"
+    }
+    if(car==="si") {
+        minusculas=minusculas+".,/()#$%&*+{]"
+    }
+
+    for (let i = 0; i < tam; i++) {
+        pass = pass + minusculas[Math.trunc(Math.random()*minusculas.length)]
+    }
+
+    return pass
+}
 
