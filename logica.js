@@ -352,7 +352,7 @@ console.log(juntarElmentos(crearPass("si","si","si",10)))
 
 
 /************************* 2DA FORMA: EDTEAM *****************/
-const generar = () =>{
+/*const generar = () =>{
     let tam = prompt("Tamaño de pass: ")
     let may = prompt("Mayúsculas: si/no")
     let num = prompt("Números: si/no")
@@ -376,7 +376,67 @@ const generar = () =>{
     }
 
     return pass
+}*/
+
+
+
+/*########### EJERCICIO 5 ##############
+ALGORITMO DE CIFRADO CESAR
+El algoritmo de encriptación cesar lo que hace es que tienes un mensaje, palabra o hasta un libro
+y se encarga de encriptar (aplicar un algoritmo para codificar) la información por medio del desplazamiento
+*/
+
+/* #############################  FORMA 1 ####################################*/
+
+/*let miarr=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","ñ","o","p","q","r","s","t","u","v","w","x","y","z"]
+const cifrar = (frase,despla)=>{
+    let encriptar=""
+    let c=0
+    while (c<frase.length) {
+        if (frase[c]===" ") {
+            encriptar = encriptar+" "
+        }else{
+            for (let i = 0; i < miarr.length; i++) {
+            if (frase[c] === miarr[i]) {
+                if((i+1+despla)>miarr.length){
+                    let j=despla-(miarr.length-(i+1))-1
+                    encriptar = encriptar + miarr[j]
+                }else{
+                    encriptar = encriptar + miarr[i+despla]
+                }
+                i=27
+            }
+        }
+        }
+        c++
+    }
+    return encriptar
+}
+console.log(cifrar("holax mundo",4))*/
+
+
+/* ###############################  FORMA 2 ####################################*/
+
+let miarr=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","ñ","o","p","q","r","s","t","u","v","w","x","y","z"]
+const cifrar = (frase,despla)=>{
+    let encriptar=""
+    let c=0
+    while (c<frase.length) {
+        if (frase[c]===" ") {
+            encriptar = encriptar+" "
+        }
+        if (miarr.includes(frase[c])===true) {
+            let pos = miarr.indexOf(frase[c])
+            if ((pos+1+despla)>miarr.length) {
+                let j = despla - (miarr.length - (pos+1)) - 1
+                encriptar=encriptar+miarr[j]
+            } else {
+                encriptar=encriptar+miarr[pos+despla]    
+            }       
+        }
+        c++
+    }
+    return encriptar
 }
 
-###sdfsdsdfsd
-##modify2
+console.log(cifrar("holaz mundo",5))
