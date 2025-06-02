@@ -417,7 +417,7 @@ console.log(cifrar("holax mundo",4))*/
 
 /* ###############################  FORMA 2 ####################################*/
 
-let miarr=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","ñ","o","p","q","r","s","t","u","v","w","x","y","z"]
+/*let miarr=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","ñ","o","p","q","r","s","t","u","v","w","x","y","z"]
 const cifrar = (frase,despla)=>{
     let encriptar=""
     let c=0
@@ -439,4 +439,24 @@ const cifrar = (frase,despla)=>{
     return encriptar
 }
 
-console.log(cifrar("holaz mundo",5))
+console.log(cifrar("holaz mundo",5))*/
+
+
+/************************* 3RA FORMA: EDTEAM *****************/
+
+const encriptar = () =>{
+    let abc="abcdefghijklmnopqrstuvwxyz"
+    let mensaje=prompt("Ingrese mensaje: ")
+    let desplazamiento=Number(prompt("Ingrese número: "))
+    let resultado = ""
+
+    for(let i=0;i<mensaje.length;i++){
+        let posActual=abc.indexOf(mensaje[i])
+        let posDeseada=posActual+desplazamiento 
+        let posNueva= posDeseada < abc.length ? posDeseada : posDeseada%abc.length
+        let letra = abc[posNueva]
+        resultado+=letra
+    }
+    return resultado
+}
+console.log(encriptar())
