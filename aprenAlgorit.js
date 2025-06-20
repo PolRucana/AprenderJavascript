@@ -27,7 +27,9 @@ console.log(ordenar(arreglo))*/
 
 
 
+/********************************************************************/
 /********************** INSERTION SORT *****************************/
+/********************************************************************/
 
 /**** FORMA 1 ****/
 /*function insertSort(myarray) {
@@ -47,7 +49,7 @@ console.log(insertSort([3,8,6,12,5,17,2,4,1,12,-1]))*/
 
 /**** FORMA 2 ****/
 
-const insertSort = (myarray) =>{
+/*const insertSort = (myarray) =>{
   for(let i=1;i<myarray.length;i++){
     let actual=myarray[i]
     let j=i
@@ -60,4 +62,51 @@ const insertSort = (myarray) =>{
   return myarray
 }
 
-console.log(insertSort([3,8,6,12,5,17,2,4,1,12,-1]))
+console.log(insertSort([3,8,6,12,5,17,2,4,1,12,-1]))*/
+
+
+
+/********************************************************************/
+/********************** SELECTION SORT *****************************/
+/********************************************************************/
+
+/**** FORMA 1 ****/
+/*function selectionSort(array){
+  for(let i=0;i<array.length;i++){
+    let min = array[i] 
+    let posmin = i
+    for(let j=i+1;j<array.length;j++){
+      if(array[j]<min){
+        min=array[j]
+        posmin=j
+      }
+    }
+    if(i!=posmin) {
+      let aux = array[i]
+      array[i] = array[posmin]
+      array[posmin] = aux
+    }
+  }
+  return array
+}
+
+console.log(selectionSort([3,8,6,12,5,17,2,4,1,12,-1]))*/
+
+
+/**** FORMA 1 ****/
+const selectionSort = (array) =>{
+  for(let i=0;i<array.length;i++){
+    let min = i
+    for(let j=i+1;j<array.length;j++){
+      if(array[j]<array[min]){
+        min = j
+      }
+    }
+    let aux = array[i]
+    array[i] = array[min]
+    array[min] = aux
+  }
+  return array
+}
+
+console.log(selectionSort([3,8,6,12,5,17,2,4,1,12,-1]))
