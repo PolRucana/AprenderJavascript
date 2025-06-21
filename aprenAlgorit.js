@@ -31,7 +31,7 @@ console.log(ordenar(arreglo))*/
 /********************** INSERTION SORT *****************************/
 /********************************************************************/
 
-/**** FORMA 1 ****/
+/**** FORMA 1 (Esta forma es la mejor para mí) ****/
 /*function insertSort(myarray) {
   for(let i=1;i<myarray.length;i++){
     let j=i
@@ -93,7 +93,7 @@ console.log(insertSort([3,8,6,12,5,17,2,4,1,12,-1]))*/
 console.log(selectionSort([3,8,6,12,5,17,2,4,1,12,-1]))*/
 
 
-/**** FORMA 1 ****/
+/**** FORMA 2  (Esta forma es la mejor para mí) ****/
 const selectionSort = (array) =>{
   for(let i=0;i<array.length;i++){
     let min = i
