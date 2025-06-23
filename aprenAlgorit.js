@@ -94,7 +94,7 @@ console.log(selectionSort([3,8,6,12,5,17,2,4,1,12,-1]))*/
 
 
 /**** FORMA 2  (Esta forma es la mejor para mí) ****/
-const selectionSort = (array) =>{
+/*const selectionSort = (array) =>{
   for(let i=0;i<array.length;i++){
     let min = i
     for(let j=i+1;j<array.length;j++){
@@ -109,4 +109,30 @@ const selectionSort = (array) =>{
   return array
 }
 
-console.log(selectionSort([3,8,6,12,5,17,2,4,1,12,-1]))
+console.log(selectionSort([3,8,6,12,5,17,2,4,1,12,-1]))*/
+
+
+
+/********************************************************************/
+/********************** BÚSQUEDA BIANRIA *****************************/
+/********************************************************************/
+
+/*** FORMA 1 ***/
+const busquedabinaria = (miarray,valor) =>{
+  let start = 0
+  let end = miarray.length - 1
+
+  while(start<=end){
+    let middle = Math.trunc((start+end)/2)
+    if(miarray[middle]==valor){
+      return true
+    }else if(miarray[middle]<valor){
+      start = middle + 1
+    }else{
+      end = middle - 1
+    }
+  }
+  return false
+}
+
+console.log(busquedabinaria([-1,5,7,13,45,70,101],101))
