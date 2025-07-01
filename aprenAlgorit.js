@@ -136,3 +136,27 @@ const busquedabinaria = (miarray,valor) =>{
 }
 
 console.log(busquedabinaria([-1,5,7,13,45,70,101],101))
+
+
+
+/********************************************************************/
+/***** BÚSQUEDA MÁXIMO Y MÍNIMO (BUSQUEDA SECUENCIAL) **************/
+/********************************************************************/
+
+/*** FORMA 1 ***/
+
+const busmaxymin = (miarray) =>{
+  let max = miarray[0]
+  let min = miarray[0]
+  for(let i=1;i<miarray.length;i++){
+    if (miarray[i]>max) {
+      max=miarray[i]
+    }
+    if (miarray[i]<min) {
+      min=miarray[i]
+    }
+  }
+  return [min,max]
+}
+
+console.log(busmaxymin([3,6,1,7,-4,-10,18]))
