@@ -145,7 +145,7 @@ console.log(busquedabinaria([-1,5,7,13,45,70,101],101))
 
 /*** FORMA 1 ***/
 
-const busmaxymin = (miarray) =>{
+/*const busmaxymin = (miarray) =>{
   let max = miarray[0]
   let min = miarray[0]
   for(let i=1;i<miarray.length;i++){
@@ -159,4 +159,51 @@ const busmaxymin = (miarray) =>{
   return [min,max]
 }
 
-console.log(busmaxymin([3,6,1,7,-4,-10,18]))
+console.log(busmaxymin([3,6,1,7,-4,-10,18]))*/
+
+
+
+
+//#4 COMBINAR 2 ARRAY'S ORDENADOS
+/*
+Implemente un algoritmo capaz de combinar dos arrays ordenandos, obteniendo
+un array ordenado
+- Analice el orden de su algoritmo
+- Implemente un algoritmo, sin usar metodos propios de javascript
+*/
+
+const combinar = (arra1,arra2) =>{
+    let newarr =[]
+    //también puede ir el while de abajo, si uno llega a 0 te da false y corta
+    //while(arra1.length && arra2.length)
+    while (arra1.length!=0 && arra2.length!=0) {
+        let primerelemento
+        if (arra1[0]<arra2[0]) {
+            primerelemento = arra1.shift()
+        } else {
+            primerelemento = arra2.shift()
+        }
+        newarr.push(primerelemento)
+    }
+    newarr = newarr.concat(arra1).concat(arra2)
+    return newarr
+}
+
+
+
+
+//#5 IMPLEMENTE UN ALGORITMO EL CUAL DADO UN ARRAY CUALQUIERA LO ORDENE 
+//  (USAR MERGE SORT)
+// Merge sort: Usa el princio de divide y venceras
+
+const mergesort = (darr) =>{
+    if(darr.length==1) return darr
+    let mitad = Math.trunc(darr.length/2)
+    let arrleft = darr.splice(0,mitad)
+    let arrrigth = darr
+    let myleft = mergesort(arrleft)
+    let myrigth = mergesort(arrrigth)
+    //usamos la funcion anterior de combinar 2 array
+    return  combinar(myleft,myrigth)
+}
+console.log(mergesort([8,1,10,9,7,11,3,21,0]))
