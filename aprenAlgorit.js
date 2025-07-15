@@ -118,7 +118,7 @@ console.log(selectionSort([3,8,6,12,5,17,2,4,1,12,-1]))*/
 /********************************************************************/
 
 /*** FORMA 1 ***/
-const busquedabinaria = (miarray,valor) =>{
+/*const busquedabinaria = (miarray,valor) =>{
   let start = 0
   let end = miarray.length - 1
 
@@ -135,7 +135,7 @@ const busquedabinaria = (miarray,valor) =>{
   return false
 }
 
-console.log(busquedabinaria([-1,5,7,13,45,70,101],101))
+console.log(busquedabinaria([-1,5,7,13,45,70,101],101))*/
 
 
 
@@ -164,15 +164,11 @@ console.log(busmaxymin([3,6,1,7,-4,-10,18]))*/
 
 
 
-//#4 COMBINAR 2 ARRAY'S ORDENADOS
-/*
-Implemente un algoritmo capaz de combinar dos arrays ordenandos, obteniendo
-un array ordenado
-- Analice el orden de su algoritmo
-- Implemente un algoritmo, sin usar metodos propios de javascript
-*/
+/********************************************************************/
+/********************** ORDENAMIENTO MERGE SORT  *******************/
+/********************************************************************/
 
-const combinar = (arra1,arra2) =>{
+/*const combinar = (arra1,arra2) =>{
     let newarr =[]
     //también puede ir el while de abajo, si uno llega a 0 te da false y corta
     //while(arra1.length && arra2.length)
@@ -187,16 +183,11 @@ const combinar = (arra1,arra2) =>{
     }
     newarr = newarr.concat(arra1).concat(arra2)
     return newarr
-}
+}*/
 
-
-
-
-//#5 IMPLEMENTE UN ALGORITMO EL CUAL DADO UN ARRAY CUALQUIERA LO ORDENE 
-//  (USAR MERGE SORT)
 // Merge sort: Usa el princio de divide y venceras
 
-const mergesort = (darr) =>{
+/*const mergesort = (darr) =>{
     if(darr.length==1) return darr
     let mitad = Math.trunc(darr.length/2)
     let arrleft = darr.splice(0,mitad)
@@ -206,4 +197,45 @@ const mergesort = (darr) =>{
     //usamos la funcion anterior de combinar 2 array
     return  combinar(myleft,myrigth)
 }
-console.log(mergesort([8,1,10,9,7,11,3,21,0]))
+console.log(mergesort([8,1,10,9,7,11,3,21,0]))*/
+
+
+
+/********************************************************************/
+/********************** ORDENAMIENTO QUICK SORT  *******************/
+/********************************************************************/
+
+const partirArray = (array,inicio,final) =>{
+
+  let pivote = array[final];
+  /*En la línea de abajo también le podemos poner directamente -1*/
+  let j=inicio-1;
+
+  for(let i=inicio;i<=final-1;i++){
+    if(array[i]<pivote) {
+      j++;
+      let temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+      //Las 3 líneas de arriba pueden ser reemplazadas por la línea de abajo
+      //[array[i],array[j]] = [array[j],array[i]]
+    }
+  }
+
+  [array[j+1],array[final]] = [array[final],array[j+1]];
+
+  return j+1;
+}
+
+const quickSort = (array,inicio,final) =>{
+  if(inicio<final){
+    let mipivote = partirArray(array,inicio,final);
+
+    quickSort(array,inicio,mipivote-1);
+    quickSort(array,mipivote+1,final);
+  }
+}
+
+let arr=[4,6,2,5,8,9,5,10];
+quickSort(arr,0,arr.length-1);
+console.log(arr);
