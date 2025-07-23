@@ -163,14 +163,11 @@ console.log(busmaxymin([3,6,1,7,-4,-10,18]))*/
 
 
 
+/********************************************************************/
+/*************************** MERGE SORT *****************************/
+/********************************************************************/
 
-//#4 COMBINAR 2 ARRAY'S ORDENADOS
-/*
-Implemente un algoritmo capaz de combinar dos arrays ordenandos, obteniendo
-un array ordenado
-- Analice el orden de su algoritmo
-- Implemente un algoritmo, sin usar metodos propios de javascript
-*/
+//COMBINAR 2 ARRAY'S ORDENADOS
 
 const combinar = (arra1,arra2) =>{
     let newarr =[]
@@ -189,13 +186,7 @@ const combinar = (arra1,arra2) =>{
     return newarr
 }
 
-
-
-
-//#5 IMPLEMENTE UN ALGORITMO EL CUAL DADO UN ARRAY CUALQUIERA LO ORDENE 
-//  (USAR MERGE SORT)
 // Merge sort: Usa el princio de divide y venceras
-
 const mergesort = (darr) =>{
     if(darr.length==1) return darr
     let mitad = Math.trunc(darr.length/2)
@@ -207,3 +198,38 @@ const mergesort = (darr) =>{
     return  combinar(myleft,myrigth)
 }
 console.log(mergesort([8,1,10,9,7,11,3,21,0]))
+
+
+
+/********************************************************************/
+/*********************** COUNTING SORT ******************************/
+/********************************************************************/
+
+
+function countingSort (myArray){
+
+  const tamaño = myArray.length
+  let maxArr = 0
+  for(let i=0;i<tamaño;i++){
+    maxArr = Math.max(maxArr,myArray[i])
+  }
+  const newArr = new Array(maxArr+1).fill(0)
+
+  for(let i=0;i<tamaño;i++){
+    newArr[myArray[i]] = newArr[myArray[i]] + 1
+  }
+
+  for(let i=1;i<=maxArr;i++){
+    newArr[i] = newArr[i] + newArr[i-1]
+  }
+
+  const finalArr = new Array(tamaño)
+  for(let i=0;i<tamaño;i++){
+    finalArr[newArr[myArray[i]]-1] = myArray[i]
+    newArr[myArray[i]]--
+  }
+
+  return finalArr
+}
+
+console.log(countingSort([4,3,12,1,5,5,3,9]))
