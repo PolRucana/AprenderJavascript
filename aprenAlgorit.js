@@ -168,6 +168,8 @@ console.log(busmaxymin([3,6,1,7,-4,-10,18]))*/
 /********************** ORDENAMIENTO MERGE SORT  *******************/
 /********************************************************************/
 
+//Combinamos 2 array's ordenados
+
 /*const combinar = (arra1,arra2) =>{
     let newarr =[]
     //también puede ir el while de abajo, si uno llega a 0 te da false y corta
@@ -208,7 +210,6 @@ console.log(mergesort([8,1,10,9,7,11,3,21,0]))*/
 const partirArray = (array,inicio,final) =>{
 
   let pivote = array[final];
-  /*En la línea de abajo también le podemos poner directamente -1*/
   let j=inicio-1;
 
   for(let i=inicio;i<=final-1;i++){
@@ -239,3 +240,37 @@ const quickSort = (array,inicio,final) =>{
 let arr=[4,6,2,5,8,9,5,10];
 quickSort(arr,0,arr.length-1);
 console.log(arr);
+
+
+
+/********************************************************************/
+/*************************** COUNTING SORT  **************************/
+/********************************************************************/
+
+function countingSort (myArray){
+
+  const tamaño = myArray.length
+  let maxArr = 0
+  for(let i=0;i<tamaño;i++){
+    maxArr = Math.max(maxArr,myArray[i])
+  }
+  const newArr = new Array(maxArr+1).fill(0)
+
+  for(let i=0;i<tamaño;i++){
+    newArr[myArray[i]] = newArr[myArray[i]] + 1
+  }
+
+  for(let i=1;i<=maxArr;i++){
+    newArr[i] = newArr[i] + newArr[i-1]
+  }
+
+  const finalArr = new Array(tamaño)
+  for(let i=0;i<tamaño;i++){
+    finalArr[newArr[myArray[i]]-1] = myArray[i]
+    newArr[myArray[i]]--
+  }
+
+  return finalArr
+}
+
+console.log(countingSort([4,3,12,1,5,5,3,9]))
