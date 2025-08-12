@@ -207,7 +207,7 @@ console.log(mergesort([8,1,10,9,7,11,3,21,0]))*/
 /********************** ORDENAMIENTO QUICK SORT  *******************/
 /********************************************************************/
 
-const partirArray = (array,inicio,final) =>{
+/*const partirArray = (array,inicio,final) =>{
 
   let pivote = array[final];
   let j=inicio-1;
@@ -239,7 +239,7 @@ const quickSort = (array,inicio,final) =>{
 
 let arr=[4,6,2,5,8,9,5,10];
 quickSort(arr,0,arr.length-1);
-console.log(arr);
+console.log(arr);*/
 
 
 
@@ -247,7 +247,7 @@ console.log(arr);
 /*************************** COUNTING SORT  **************************/
 /********************************************************************/
 
-function countingSort (myArray){
+/*function countingSort (myArray){
 
   const tamaño = myArray.length
   let maxArr = 0
@@ -273,4 +273,35 @@ function countingSort (myArray){
   return finalArr
 }
 
-console.log(countingSort([4,3,12,1,5,5,3,9]))
+console.log(countingSort([4,3,12,1,5,5,3,9]))*/
+
+
+
+/********************************************************************/
+/*************************** BUCKET SORT  **************************/
+/********************************************************************/
+
+
+
+const bucketSort = (array) =>{
+
+   // Crear una lista de "botes" vacíos
+  let tamArray = array.length
+  let newArr = new Array(tamArray)
+  //Esta linea puede reemplazar al for de abajo => let newArr = new Array(tamArray).fill([])
+  for(let i=0;i<tamArray;i++){
+    newArr[i] = []
+  }
+  
+  // Normalizar los elementos en el rango [0, 1]
+  //Esta linea puede reemplazar al for y let de abajo => let maxArray = Math.max(...arr)
+  let maxArray = 0
+  for(let i=0;i<tamArray;i++){
+    maxArray = Math.max(array[i],maxArray)
+  }
+  let rt = array.map(num=>num/maxArray)
+ 
+  return rt
+}
+
+console.log(bucketSort([1,2,3]))
