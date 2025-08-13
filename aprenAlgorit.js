@@ -299,9 +299,19 @@ const bucketSort = (array) =>{
   for(let i=0;i<tamArray;i++){
     maxArray = Math.max(array[i],maxArray)
   }
-  let rt = array.map(num=>num/maxArray)
- 
-  return rt
+
+  for(i=0;i<tamArray;i++){
+    array[i] = parseFloat((array[i]/maxArray).toFixed(2))
+  }
+
+  // Distribuir los elementos en los botes
+  array.forEach(num => {
+    let newValor = num*(tamArray-1)
+    newArr[newValor] = num
+  });
+
+  return newArr
+
 }
 
 console.log(bucketSort([1,2,3]))
