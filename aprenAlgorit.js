@@ -300,18 +300,19 @@ const bucketSort = (array) =>{
     maxArray = Math.max(array[i],maxArray)
   }
 
+  let arrayDecim = Array.from(array)
   for(i=0;i<tamArray;i++){
-    array[i] = parseFloat((array[i]/maxArray).toFixed(2))
+    arrayDecim[i] = parseFloat((array[i]/maxArray).toFixed(2))
   }
 
   // Distribuir los elementos en los botes
-  array.forEach(num => {
-    let newValor = num*(tamArray-1)
-    newArr[newValor] = num
+  arrayDecim.forEach(num => {
+    let newValor = Math.trunc(num*(tamArray-1))
+    newArr[newValor].push(num)
   });
 
   return newArr
 
 }
 
-console.log(bucketSort([1,2,3]))
+console.log(bucketSort([1,2,3,2]))
