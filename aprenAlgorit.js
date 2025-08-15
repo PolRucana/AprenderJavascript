@@ -281,7 +281,17 @@ console.log(countingSort([4,3,12,1,5,5,3,9]))*/
 /*************************** BUCKET SORT  **************************/
 /********************************************************************/
 
-
+const busqInsertSort = (array) =>{
+  for(let i=1;i<array.length;i++){
+    let j=i
+    while (j>=1 && array[j]<array[i-1]) {
+      let aux = array[j]
+      array[j] = array[j-1]
+      array[j-1] = aux
+    }
+  }
+  return array
+}
 
 const bucketSort = (array) =>{
 
@@ -306,13 +316,24 @@ const bucketSort = (array) =>{
   }
 
   // Distribuir los elementos en los botes
-  arrayDecim.forEach(num => {
-    let newValor = Math.trunc(num*(tamArray-1))
-    newArr[newValor].push(num)
-  });
+  for(let i=0;i<arrayDecim.length;i++){
+    let newValor = Math.trunc(arrayDecim[i]*(tamArray-1))
+    newArr[newValor].push(array[i])
+  }
 
-  return newArr
+  //Ordenar cada bote individualmente (usando Insertion Sort en este caso)
+  newArr.forEach(num=>{
+    busqInsertSort(num)
+  })
+  
+  //Concatenar los botes ordenados para obtener el arreglo ordenado final
+  let arrFinal=[]
+  newArr.forEach(num=>{
+    arrFinal=arrFinal.concat(num)
+  })
+
+  return arrFinal
 
 }
 
-console.log(bucketSort([1,2,3,2]))
+console.log(bucketSort([5,9,1,2,3,2,8]))
