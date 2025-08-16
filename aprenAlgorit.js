@@ -207,7 +207,7 @@ console.log(mergesort([8,1,10,9,7,11,3,21,0]))*/
 /********************** ORDENAMIENTO QUICK SORT  *******************/
 /********************************************************************/
 
-const partirArray = (array,inicio,final) =>{
+/*const partirArray = (array,inicio,final) =>{
 
   let pivote = array[final];
   let j=inicio-1;
@@ -239,7 +239,7 @@ const quickSort = (array,inicio,final) =>{
 
 let arr=[4,6,2,5,8,9,5,10];
 quickSort(arr,0,arr.length-1);
-console.log(arr);
+console.log(arr);*/
 
 
 
@@ -247,7 +247,7 @@ console.log(arr);
 /*************************** COUNTING SORT  **************************/
 /********************************************************************/
 
-function countingSort (myArray){
+/*function countingSort (myArray){
 
   const tamaño = myArray.length
   let maxArr = 0
@@ -273,4 +273,67 @@ function countingSort (myArray){
   return finalArr
 }
 
-console.log(countingSort([4,3,12,1,5,5,3,9]))
+console.log(countingSort([4,3,12,1,5,5,3,9]))*/
+
+
+
+/********************************************************************/
+/*************************** BUCKET SORT  **************************/
+/********************************************************************/
+
+const busqInsertSort = (array) =>{
+  for(let i=1;i<array.length;i++){
+    let j=i
+    while (j>=1 && array[j]<array[i-1]) {
+      let aux = array[j]
+      array[j] = array[j-1]
+      array[j-1] = aux
+    }
+  }
+  return array
+}
+
+const bucketSort = (array) =>{
+
+   // Crear una lista de "botes" vacíos
+  let tamArray = array.length
+  let newArr = new Array(tamArray)
+  //Esta linea puede reemplazar al for de abajo => let newArr = new Array(tamArray).fill([])
+  for(let i=0;i<tamArray;i++){
+    newArr[i] = []
+  }
+  
+  // Normalizar los elementos en el rango [0, 1]
+  //Esta linea puede reemplazar al for y let de abajo => let maxArray = Math.max(...arr)
+  let maxArray = 0
+  for(let i=0;i<tamArray;i++){
+    maxArray = Math.max(array[i],maxArray)
+  }
+
+  let arrayDecim = Array.from(array)
+  for(i=0;i<tamArray;i++){
+    arrayDecim[i] = parseFloat((array[i]/maxArray).toFixed(2))
+  }
+
+  // Distribuir los elementos en los botes
+  for(let i=0;i<arrayDecim.length;i++){
+    let newValor = Math.trunc(arrayDecim[i]*(tamArray-1))
+    newArr[newValor].push(array[i])
+  }
+
+  //Ordenar cada bote individualmente (usando Insertion Sort en este caso)
+  newArr.forEach(num=>{
+    busqInsertSort(num)
+  })
+  
+  //Concatenar los botes ordenados para obtener el arreglo ordenado final
+  let arrFinal=[]
+  newArr.forEach(num=>{
+    arrFinal=arrFinal.concat(num)
+  })
+
+  return arrFinal
+
+}
+
+console.log(bucketSort([5,9,1,2,3,2,8]))
