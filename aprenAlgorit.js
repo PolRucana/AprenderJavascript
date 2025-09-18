@@ -288,6 +288,7 @@ const busqInsertSort = (array) =>{
       let aux = array[j]
       array[j] = array[j-1]
       array[j-1] = aux
+      j--
     }
   }
   return array
@@ -311,7 +312,7 @@ const bucketSort = (array) =>{
   }
 
   let arrayDecim = Array.from(array)
-  for(i=0;i<tamArray;i++){
+  for(let i=0;i<tamArray;i++){
     arrayDecim[i] = parseFloat((array[i]/maxArray).toFixed(2))
   }
 
