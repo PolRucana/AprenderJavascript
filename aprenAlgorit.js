@@ -114,6 +114,26 @@ console.log(selectionSort([3,8,6,12,5,17,2,4,1,12,-1]))*/
 
 
 /********************************************************************/
+/********************** BUBBLE SORT *****************************/
+/********************************************************************/
+
+const bubbleSort = (myarray)=>{
+  for(let i=0;i<myarray.length;i++){
+    for(let j=1;j<=myarray.length-i-1;j++){
+      if(myarray[j]<myarray[j-1]){
+        let temp = myarray[j]
+        myarray[j]=myarray[j-1]
+        myarray[j-1]=temp
+      }
+    }
+  }
+  return myarray
+}
+console.log(bubbleSort([5,3,10,9,12,20,1]))
+
+
+
+/********************************************************************/
 /********************** BÚSQUEDA BIANRIA *****************************/
 /********************************************************************/
 
@@ -281,7 +301,7 @@ console.log(countingSort([4,3,12,1,5,5,3,9]))*/
 /*************************** BUCKET SORT  **************************/
 /********************************************************************/
 
-const busqInsertSort = (array) =>{
+/*const busqInsertSort = (array) =>{
   for(let i=1;i<array.length;i++){
     let j=i
     while (j>=1 && array[j]<array[i-1]) {
@@ -337,4 +357,4 @@ const bucketSort = (array) =>{
 
 }
 
-console.log(bucketSort([5,9,1,2,3,2,8]))
+console.log(bucketSort([5,9,1,2,3,2,8]))*/
