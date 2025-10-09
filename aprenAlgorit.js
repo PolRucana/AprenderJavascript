@@ -321,6 +321,20 @@ const searchMax = (arr) =>{
   return max
 }
 
+const finalArr = (divisor,arr) => {
+
+}
+
+const radixSort = (arr) =>{
+  const max = searchMax(arr);
+  let newArr = new Array();
+
+  for(let divisor=1; Math.trunc(max/divisor)>0; divisor*=10){
+    newArr = finalArr(divisor,arr)
+  }
+  return newArr
+}
+
 
 
 /********************************************************************/
