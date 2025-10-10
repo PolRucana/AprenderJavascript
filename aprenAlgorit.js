@@ -321,8 +321,19 @@ const searchMax = (arr) =>{
   return max
 }
 
-const finalArr = (divisor,arr) => {
+const transformArr = (divisor,arr) => {
+  const cantidad = arr.length
+  let conteoArr = Array(10).fill(0)
+  let finalArr = new Array(cantidad)
 
+  for(let i=0;i<cantidad;i++){
+    let digito = Math.trunc(arr[i]/divisor)/10
+    conteoArr[digito]+=1
+  }
+
+
+
+  return finalArr
 }
 
 const radixSort = (arr) =>{
@@ -330,7 +341,7 @@ const radixSort = (arr) =>{
   let newArr = new Array();
 
   for(let divisor=1; Math.trunc(max/divisor)>0; divisor*=10){
-    newArr = finalArr(divisor,arr)
+    newArr = transformArr(divisor,arr)
   }
   return newArr
 }
