@@ -327,25 +327,36 @@ const transformArr = (divisor,arr) => {
   let finalArr = new Array(cantidad)
 
   for(let i=0;i<cantidad;i++){
-    let digito = Math.trunc(arr[i]/divisor)/10
-    conteoArr[digito]+=1
+    let digito = Math.trunc(arr[i]/divisor)%10
+    conteoArr[digito]++
   }
 
+  for(let i=1; i<10; i++){
+    conteoArr[i] = conteoArr[i] + conteoArr[i-1]
+  }
 
+  for(let i=cantidad-1; i>=0; i--){
+    let digito = Math.trunc(arr[i]/divisor)%10
+    finalArr[conteoArr[digito]-1]=arr[i]
+    conteoArr[digito]--
+  }
 
   return finalArr
 }
 
 const radixSort = (arr) =>{
   const max = searchMax(arr);
-  let newArr = new Array();
+  let newArrfinal = [...arr]
 
   for(let divisor=1; Math.trunc(max/divisor)>0; divisor*=10){
-    newArr = transformArr(divisor,arr)
+    let newArr = transformArr(divisor,newArrfinal)
+    newArrfinal = newArr
+
   }
-  return newArr
+  return newArrfinal
 }
 
+console.log(radixSort([170, 45, 75, 90, 802, 24, 2, 66]))
 
 
 /********************************************************************/
