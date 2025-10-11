@@ -301,6 +301,7 @@ console.log(countingSort([4,3,12,1,5,5,3,9]))*/
 /*************************** RADIX SORT  **************************/
 /********************************************************************/
 
+// FUNCIÓN PARA OBTENER EL VALOR MÁXIMO
 const searchMax = (arr) =>{
   /*Forma 1*/
   let max = Math.max(...arr)
@@ -321,20 +322,24 @@ const searchMax = (arr) =>{
   return max
 }
 
+//FUNCIÓN QUE ORDENA EL ARRAY
 const transformArr = (divisor,arr) => {
   const cantidad = arr.length
   let conteoArr = Array(10).fill(0)
   let finalArr = new Array(cantidad)
 
+  //HACE EL CONTEO DE VALORES
   for(let i=0;i<cantidad;i++){
     let digito = Math.trunc(arr[i]/divisor)%10
     conteoArr[digito]++
   }
 
+  //SUMA EL VALOR ANTERIOR
   for(let i=1; i<10; i++){
     conteoArr[i] = conteoArr[i] + conteoArr[i-1]
   }
 
+  //CONSTRUYE EL ARRAY DE SALIDA
   for(let i=cantidad-1; i>=0; i--){
     let digito = Math.trunc(arr[i]/divisor)%10
     finalArr[conteoArr[digito]-1]=arr[i]
@@ -348,6 +353,7 @@ const radixSort = (arr) =>{
   const max = searchMax(arr);
   let newArrfinal = [...arr]
 
+  //ITERARÁ LA CANTIDAD DE VECES QUE TENGA COMO CIFRAS EL MAYOR
   for(let divisor=1; Math.trunc(max/divisor)>0; divisor*=10){
     let newArr = transformArr(divisor,newArrfinal)
     newArrfinal = newArr
